@@ -45,6 +45,18 @@ const interestForm = {
         interestCostField.appendChild(interestCostLabel)
         interestCostField.appendChild(interestCostInput)
 
+        let interestReviewField = document.createElement("fieldset")
+
+        let interestReviewLabel = document.createElement("label")
+        interestReviewLabel.textContent = "Review"
+        interestReviewLabel.setAttribute("for", "interest__review")
+        let interestReviewInput = document.createElement("input")
+        interestReviewInput.setAttribute("id", "interest__review")
+        interestReviewInput.setAttribute("name", "interest__review")
+
+        interestReviewField.appendChild(interestReviewLabel)
+        interestReviewField.appendChild(interestReviewInput)
+
         let placesDropdown = document.createElement("select");
         placesDropdown.setAttribute("id", "mySelect");
         interestCollection.getAllPlaces()
@@ -80,6 +92,7 @@ const interestForm = {
                 interestFormFragment.appendChild(interestNameField)
                 interestFormFragment.appendChild(interestDescriptionField)
                 interestFormFragment.appendChild(interestCostField)
+                interestFormFragment.appendChild(interestReviewField)
                 interestFormFragment.appendChild(placesDropdown)
                 interestFormFragment.appendChild(interestSaveButton)
 
@@ -93,6 +106,7 @@ const interestForm = {
                     let inputInterestName = document.querySelector("#interest__name").value
     let inputInterestDescription = document.querySelector("#interest__description").value
     let inputInterestCost = document.querySelector("#interest__cost").value
+    let inputInterestReview = document.querySelector("#interest__review").value
     let placeId = document.querySelector("#mySelect").value
 
     // 2. Create a new object with the same structure 
@@ -102,6 +116,7 @@ const interestForm = {
                         description: inputInterestDescription,
                         cost: inputInterestCost,
                         placeId: placeId,
+                        review: inputInterestReview
                         
                     }
 

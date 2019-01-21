@@ -21,6 +21,9 @@ const interest = {
     let interestCost = document.createElement("p")
     interestCost.textContent = interestObject.cost
 
+    let interestReview = document.createElement("p")
+    interestReview.textContent = interestObject.review
+
     // add edit button
     let editInterestButton = document.createElement("button")
     editInterestButton.textContent = "Edit"
@@ -50,6 +53,7 @@ const interest = {
     interestArticle.appendChild(interestName)
     interestArticle.appendChild(interestDescription)
     interestArticle.appendChild(interestCost)
+    interestArticle.appendChild(interestReview)
     interestArticle.appendChild(editInterestButton)
     interestArticle.appendChild(deleteInterestButton)
 

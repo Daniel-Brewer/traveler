@@ -75,6 +75,7 @@ const interestEditForm = {
     }
 
     interestItemArticle.appendChild(interestCostField)
+    interestItemArticle.appendChild(interestReviewField)
     interestItemArticle.appendChild(updateButton)
   }
 }

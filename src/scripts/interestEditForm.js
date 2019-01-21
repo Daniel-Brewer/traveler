@@ -6,25 +6,25 @@ const interestEditForm = {
   createAndAppendForm (articleId, interestObjToEdit) {
 
     // Building the edit form with fields for the name, Description and type of the interest item. Each of the input fields contains the existing values from the database.
-    let interestNameField = document.createElement("p")
+    // let interestNameField = document.createElement("p")
 
-    let interestNameLabel = document.createElement("label")
-    interestNameLabel.textContent = "Name"
-    let interestNameInput = document.createElement("input")
-    interestNameInput.value = interestObjToEdit.name
+    // let interestNameLabel = document.createElement("label")
+    // interestNameLabel.textContent = "Name"
+    // let interestNameInput = document.createElement("input")
+    // interestNameInput.value = interestObjToEdit.name
 
-    interestNameField.appendChild(interestNameLabel)
-    interestNameField.appendChild(interestNameInput)
+    // interestNameField.appendChild(interestNameLabel)
+    // interestNameField.appendChild(interestNameInput)
 
-    let interestDescriptionField = document.createElement("p")
+    // let interestDescriptionField = document.createElement("p")
 
-    let interestDescriptionLabel = document.createElement("label")
-    interestDescriptionLabel.textContent = "Description"
-    let interestDescriptionInput = document.createElement("input")
-    interestDescriptionInput.value = interestObjToEdit.description
+    // let interestDescriptionLabel = document.createElement("label")
+    // interestDescriptionLabel.textContent = "Description"
+    // let interestDescriptionInput = document.createElement("input")
+    // interestDescriptionInput.value = interestObjToEdit.description
 
-    interestDescriptionField.appendChild(interestDescriptionLabel)
-    interestDescriptionField.appendChild(interestDescriptionInput)
+    // interestDescriptionField.appendChild(interestDescriptionLabel)
+    // interestDescriptionField.appendChild(interestDescriptionInput)
 
     let interestCostField = document.createElement("p")
 
@@ -35,6 +35,16 @@ const interestEditForm = {
 
     interestCostField.appendChild(interestCostLabel)
     interestCostField.appendChild(interestCostInput)
+    
+    let interestReviewField = document.createElement("p")
+
+    let interestReviewLabel = document.createElement("label")
+    interestReviewLabel.textContent = "Review"
+    let interestReviewInput = document.createElement("input")
+    interestReviewInput.value = interestObjToEdit.review
+
+    interestReviewField.appendChild(interestReviewLabel)
+    interestReviewField.appendChild(interestReviewInput)
 
     let updateButton = document.createElement("button")
     updateButton.textContent = "Update"
@@ -43,9 +53,11 @@ const interestEditForm = {
 
     updateButton.addEventListener("click", () => {
       let editedInterest = {
-        name: interestNameInput.value,
-        description: interestDescriptionInput.value,
-        cost: interestCostInput.value
+        name: interestObjToEdit.name,
+        placeId: interestObjToEdit.placeId,
+        description: interestObjToEdit.description,
+        cost: interestCostInput.value,
+        review: interestReviewInput.value
       }
       
       interestCollection.putExistingInterest(interestObjToEdit.id, editedInterest)
@@ -61,8 +73,7 @@ const interestEditForm = {
     while (interestItemArticle.firstChild) {
       interestItemArticle.removeChild(interestItemArticle.firstChild);
     }
-    interestItemArticle.appendChild(interestNameField)
-    interestItemArticle.appendChild(interestDescriptionField)
+
     interestItemArticle.appendChild(interestCostField)
     interestItemArticle.appendChild(updateButton)
   }

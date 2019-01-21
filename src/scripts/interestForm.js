@@ -66,13 +66,10 @@ const interestForm = {
                 placesDropdown.appendChild(buenosAiresOption)
                 placesDropdown.appendChild(rioOption)
                 placesDropdown.appendChild(santiagoOption)
-            // })
 
                 let interestSaveButton = document.createElement("button");
                 interestSaveButton.setAttribute("class", "interestSaveButton");
                 interestSaveButton.textContent = "Save";
-                // interestForm.appendChild(interestSaveButton);
-
                 interestSaveButton.addEventListener("click", interestForm.handleAddNewInterest)
             
 
@@ -94,7 +91,7 @@ const interestForm = {
                 handleAddNewInterest(event) {
                     // 1. Get user input that user entered
                     let inputInterestName = document.querySelector("#interest__name").value
-    let inputInterestDescription = document.querySelector("#interest__Description").value
+    let inputInterestDescription = document.querySelector("#interest__description").value
     let inputInterestCost = document.querySelector("#interest__cost").value
     let placeId = document.querySelector("#mySelect").value
 
@@ -110,7 +107,7 @@ const interestForm = {
 
     // 3. Call the method(postNewinterest) with the fetch request to POST to the API and pass it the object we created in the previous step
 
-    interestCollection.postNewinterest(newInterest)
+    interestCollection.postNewInterest(newInterest)
                         .then(response => {
                             interestList.travelerify()
                         })
